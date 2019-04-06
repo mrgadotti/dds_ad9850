@@ -1,0 +1,30 @@
+if (self != top) { top.location.href = self.location.href } 
+
+
+IP = "home.vwlowen.co.uk";
+
+var pict = new Array();
+
+function address(port) {
+  fulladdr = "http://" + IP + ":" + port;
+  document.location = fulladdr;
+}
+
+function count2() {
+   if (document.getElementById('counter2')) document.getElementById('counter2').src = "http://" + IP + ":8765/hitcounter2.bmp";
+}
+
+function count() {
+   if (document.counter) document.counter.src = "http://" + IP + ":8765/hitcounter.bmp";
+}
+
+function wait(){
+
+   pict[0] = new Image(); 
+   pict[0].onload = swap;
+   pict[0].src = "http://" + IP + ":8765/online.jpg";
+}
+
+function swap() {
+     document.getElementById('online').src = pict[0].src;
+}

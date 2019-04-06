@@ -1,0 +1,15 @@
+
+ .tabtt {background-color:#9fbfff;
+         height:80px;
+         background-image:url(../images/grade1.gif);
+        }
+
+  .tabtt1 {background-color:#d9e7fc;
+           height:80px;
+           background-image:url(../images/grade1.gif);
+        }
+  .tabtd {background-color:#d7e7fc;background-image:url(../images/side4.gif) }
+  .tabtf {background-color:#bfdfff}
+  .tabtg {background-color:#d3eaff}
+  .thead {color:white; font-family:tahoma; font-size:27pt}
+  .yell {background-color:yellow}

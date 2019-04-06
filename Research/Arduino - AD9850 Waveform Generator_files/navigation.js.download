@@ -1,0 +1,253 @@
+var px1 = '';
+var px2 = '';
+var px2a = '';
+var px3 = '';
+var px3a = '';
+var px4 = '';
+var px5 = '';
+var px6 = '';
+var px7 = '';
+var px7a = '';
+var px8 = '';
+var px9 = '';
+var px10 = '';
+var pxx = '';
+
+if (document.title.substring(0, 15) == 'Weather Station') {
+  px1 = '<li class="n1"><a class="n" href="%picaxe/weather-station/weather-station.htm">Introduction</a>';
+  px2 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-2.htm">Temperature &amp; Humidity</a>';
+  px2a = '<li class="n1"><a class="n" href="%picaxe/stevenson-screen/stevenson-screen.htm">Stevenson Screen</a>';
+  px3 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-3.htm">Windspeed</a>';
+  px3a = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-4.htm">Wind Direction</a>';
+  px4 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-5.htm">The Rain Gauge</a>';
+  px5 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-6.htm">The Outdoor Electronics</a>';
+  px6 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-7.htm">The Indoor Unit</a>';
+  px7 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-9.htm">The Outdoor Code</a>';
+  px7a = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-9a.htm">The Rain Gauge Code</a>';
+  px8 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-10.htm">The Indoor Code</a>';
+  px9 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-11.htm">The PC Software</a>';
+  px10 = '<li class="n1"><a class="n" href="%picaxe/weather-station/page-12.htm">Credits & References</a>';
+  pxx = '<p>';
+}
+
+
+
+var hf = '<font style="color:blue;font-family:tahoma;font-size:9pt">';
+
+var theDate=new Date();
+y =(theDate.getFullYear());
+
+
+var a = new Array(
+hf,
+'<style type="text/css">',
+'a.n {color:black;text-decoration: none}',
+'a.n:hover {color:#777777;text-decoration: underline}',
+'a.n:active {text-decoration: underline}',
+'li.n1 {line-height:14px; font-size:9pt}',
+'li.n2 {line-height:12px; font-size:8pt}',
+'</style>',
+
+
+//'<center><img src="http://vwlowen.co.uk/images/christmas.jpg"></center><p>',
+//'<center><img src="http://vwlowen.co.uk/images/newyear.gif"></center><p>',
+
+
+hf,
+'<b>Home</b>',
+'<ul>',
+'<li class="n1"><a class="n" href="%index.htm">Home</a>',
+'<li class="n1"><a class="n" href="%mail/contact.htm">Contact me<\/a>',
+'<li class="n1"><a class="n" href="http://blog.vwlowen.co.uk/index.php">Blog - musings and moaning!<\/a>',
+'</ul>',
+
+'<hr>',
+hf,
+
+'<b>The Wirral Peninsula</b>',
+'<ul>',
+'<li class="n1"><a class="n" href="%wirral/index.htm"><b>Wirral contents page</b></a><p>',
+'<li class="n1"><a class="n" href="http://home.vwlowen.co.uk:82/weather.htm">Weather Station Data<\/a><p>',
+
+//'<li class="n1"><a class="n" href="%webcam/updateB.html">North Wirral Sky<\/a>',
+'<li class="n1"><a class="n" href="%webcam/streamC.htm">Arrowe Brook Cam<\/a><p>',
+
+'<li class="n1"><a class="n" href="%wirral/map.htm">Map</a>',
+'<li class="n1"><a class="n" href="%wirral/textmain.htm">History</a>',
+'<li class="n1"><a class="n" href="%wirral/main.htm">Photographs</a>',
+'<li class="n1"><a class="n" href="%wirral/quiz/quizmain.htm">Photo Quiz</a>',
+'<li class="n1"><a class="n" href="%misc/water/tracearrowebrook1.htm">Wirral\'s streams</a>',
+'</ul>',
+
+'<hr>',
+
+
+hf,
+'<b>Amateur Radio &amp; Electronics</b>',
+'<ul>',
+
+'<li class="n1"><a class="n" href="%radio/index.htm"><b>Main contents page</b></a><p>',
+
+'<li class="n1"><a class="n" href="%arduino/index.htm"><b>ARDUINO - Projects &amp; Notes</a></b><p>',
+
+'<li class="n1"><a class="n" href="%arduino/vfd/vfd-clock.htm">VFD Clock</a><p>',
+'<li class="n1"><a class="n" href="%arduino/power-supply/power-supply.htm">Variable DC Bench PSU</a><p>',
+'<li class="n1"><a class="n" href="%arduino/icsp/icsp.htm">AVR In-System Programmer</a><p>',
+
+pxx,
+'<li class="n1"><a class="n" href="%picaxe/weather-station/weather-station.htm">PICAXE Weather Station</a>',
+'<ul>',
+px1,
+px2,
+px2a,
+px3,
+px3a,
+px4,
+px5,
+px6,
+px7,
+px7a,
+px8,
+px9,
+px10,
+'<\/ul>',
+pxx,
+
+
+'<li class="n1"><a class="n" href="%radio/videoswitch3/index.htm">PICAXE Video Switcher</a>',
+'<li class="n1"><a class="n" href="%picaxe/index.htm">PICAXE Miscellaneous stuff</a><p>',
+'<li class="n1"><a class="n" href="%radio/fairmate/fairmate.htm">Resetting the Fairmate HP-2000</a>',
+'<li class="n1"><a class="n" href="%radio/alarm/index.htm">Beginner\'s Project</a>',
+'<li class="n1"><a class="n" href="%radio/radtech.htm">Cure TV Interference</a>',
+'<li class="n1"><a class="n" href="%java/index.htm">JavaScript Calculators</a>',
+'<li class="n1"><a class="n" href="%humax/temperature.htm">A temperature-controlled fan for the Humax</a>',
+'<li class="n1"><a class="n" href="%vestel/digihome.htm">Inside the Digihome PVR80</a>',
+
+'<\/ul>',
+'<hr>',
+
+
+
+
+
+
+hf,
+'<b>Webcams and Video cams<\/b>',
+
+'<ul>',
+
+'<li class="n1"><a class="n" href="%webcam/updateB.html">North Wirral Sky<\/a>',
+'<li class="n1"><a class="n" href="%webcam/streamC.htm">Arrowe Brook Cam<\/a>',
+'</ul>',
+'<ul>',
+'<li class="n1"><a class="n" href="%photos/nestbox1/2010/nestbox1-file.htm">Nestbox video - 2010<\/a>',
+'<li class="n1"><a class="n" href="%photos/nestbox1/2010/2010.htm">Nestbox still shots - 2010<\/a>',
+'</ul>',
+'<ul>',
+'<li class="n1"><a class="n" href="%video/videoset.htm">How the cameras work<\/a>',
+'</ul>',
+'<ul>',
+'<li class="n2"><a class="n" href="%photos/archive.htm">Previous years\' nestbox videos</a>',
+'<li class="n2"><a class="n" href="%misc/firefox.htm">Video not working...?<\/a>',
+'</ul>',
+'<hr>',
+
+hf,
+'<b>How to set up video cams</b>',
+'<ul>',
+
+'<li class="n1"><a class="n" href="%video/weathercam.htm">The weathercam</a>',
+'<li class="n1"><a class="n" href="%video/icam/icam01.htm">Using iCam Basic</a>',
+'<li class="n1"><a class="n" href="%video/basic01.htm">Basic network video</a>',
+'<li class="n1"><a class="n" href="%video/stream.htm">How to stream video</a>',
+'<li class="n1"><a class="n" href="%video/nestbox.htm">The nestbox setup</a>',
+'<li class="n1"><a class="n" href="%video/server.htm">Working behind a router</a>',
+
+'</ul>',
+'<hr>',
+
+hf,
+'<b>Windows Software Downloads</b>',
+'<ul>',
+'<li class="n1"><a class="n" href="%misc/downloads.htm"><b>Popular Downloads</b></a><p>',
+//'<li class="n1"><a class="n" href="%internet/files.htm">RouterStats and RouterStats -Lite</a><p>',
+
+
+'<li class="n1"><a class="n" href="%radio/files.htm">Amateur Radio Programs</a>',
+'<li class="n1"><a class="n" href="%internet/files2.htm">Internet Programs</a>',
+'<li class="n1"><a class="n" href="%moreinternet/files.htm">More Internet &amp; Networking</a>',
+'<li class="n1"><a class="n" href="%otherprogs/files.htm">Other Programs</a><p>',
+'<li class="n1"><a class="n" href="%files/index.htm">Master index of most programs</a>',
+
+'</ul>',
+'<hr>',
+
+hf,
+'<b>Delphi Programming</b>',
+'<ul>',
+
+'<li class="n1"><a class="n" href="%basicdelphi/page01.htm">Delphi Basics</a>',
+'<li class="n1"><a class="n" href="%directshow/page01.htm">DirectShow &amp; Delphi</a>',
+'<li class="n1"><a class="n" href="%directshow/asfwriter/page01.htm">ASF/Network Streaming</a>',
+
+'</ul>',
+'<hr>',
+
+
+hf,
+'<b>Miscellaneous &amp; Temporary Stuff</b>',
+'<ul>',
+'<li class="n1"><a class="n" href="%misc/routers/compare.htm">Comparison of routers on Be*</a><p>',
+'<li class="n1"><a class="n" href="%misc/moving/moving1.htm">Moving House (2007)</a>',
+'<li class="n1"><a class="n" href="%bungalow/bungalow.htm">Jobs at the new bungalow</a>',
+
+'<li class="n1"><a class="n" href="%food/index.htm">Quick to make meals</a>',
+
+'<li class="n1"><a class="n" href="%misty/kitten.htm">Misty</a>',
+'<li class="n1"><a class="n" href="%misc/sooty.htm">Sooty</a>',
+'<li class="n1"><a class="n" href="%archive/archive.htm">Archived stuff</a>',
+
+'<li class="n1"><a class="n" href="http://vwlowen.co.uk/gallery/gallery.php">Gallery</a>',
+'</ul>',
+'<hr>',
+
+
+
+hf,
+'<b>About this site</b>',
+'<ul>',
+'<li class="n1"><a class="n" href="http://vwlowen.co.uk/blog/index.php">Blog - musings and moaning!<\/a>',
+'<li><a class="n" href="%mail/contact.htm">Contact me<\/a>',
+'<li class="n1"><a class="n" href="%misc/copyright.htm">Copyright info</a>',
+'<li class="n1"><a class="n" href="%misc/credits.htm">Credits &amp; references</a>',
+
+
+'</ul>',
+'<hr>',
+
+'<p><p>&nbsp;<p><center><img src="navigation/offline1.gif" id="counter2" alt="Counter">',
+'<p><p>&nbsp;<p></center>',
+'<script type="text/javascript">count2()</script>',
+
+
+
+
+
+
+'<a class="n"  href="%misc/copyright.htm">&copy 1996 - ' + y + ' vwlowen.co.uk</a>');
+
+function nav(r, n) {
+  for (var i = 0; i < a.length; i++){
+    var text = a[i];
+    text = text.replace(/%/, r);
+    if (text.indexOf('>'+n+'<', 6) > 0) {
+      document.write('<li><span style="background-color:#ff0000;">&nbsp;</span><span style="background-color:#dddddd;">&nbsp; ' + n + '&nbsp;</span><span style="background-color:#ff0000;">&nbsp<p></span>')
+    } else
+      document.write(text);
+  }
+}
+
+function cur(t) {
+  t.style.cursor = "url(images/plus1.cur), auto";
+}
+

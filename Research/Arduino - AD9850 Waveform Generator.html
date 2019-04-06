@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0088)http://www.vwlowen.co.uk/arduino/AD9850-waveform-generator/AD9850-waveform-generator.htm -->
+<html data-blockbyte-bs-uid="39108"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Arduino - AD9850 Waveform Generator</title>
+
+   
+   <script src="./Arduino - AD9850 Waveform Generator_files/ip.js.download" type="text/javascript"></script>
+   <script src="./Arduino - AD9850 Waveform Generator_files/navigation.js.download" type="text/javascript"></script>
+   <link rel="StyleSheet" href="./Arduino - AD9850 Waveform Generator_files/stylet1.css" type="text/css"> 
+
+<style class="blockbyte-bs-style" data-name="content">body>div#blockbyte-bs-indicator>div{opacity:0;pointer-events:none}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-visible,body>iframe#blockbyte-bs-overlay.blockbyte-bs-visible{opacity:1;pointer-events:auto}body.blockbyte-bs-noscroll{overflow:hidden !important}body>div#blockbyte-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity 0.3s, transform 0.3s;z-index:2}body>div#blockbyte-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#blockbyte-bs-indicator[data-pos='right']{left:auto;right:0}body>div#blockbyte-bs-indicator[data-pos='right']>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#blockbyte-bs-indicator.blockbyte-bs-fullHeight>div{border-radius:0}body>div#blockbyte-bs-indicator.blockbyte-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb{height:100% !important;top:0 !important}body>div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb>div{background:transparent}body>div#blockbyte-bs-indicator[data-pos='left'].blockbyte-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>iframe#blockbyte-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(0,0,0,0.6) !important;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s}body>iframe#blockbyte-bs-sidebar[data-pos='right']{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity 0.3s, transform 0.3s}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask{background:none !important}body>iframe#blockbyte-bs-sidebar.blockbyte-bs-hideMask:not(.blockbyte-bs-hover){width:calc(350px + 50px)}body>iframe#blockbyte-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;background:rgba(0,0,0,0.5) !important;transition:opacity 0.3s}
+</style></head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EE" vlink="#551A8B" alink="#FF0000" background="./Arduino - AD9850 Waveform Generator_files/image2.jpg" style="background-attachment:fixed">
+<table width="95%" border="0" cellpadding="5" cellspacing="1">
+<tbody><tr>
+<td colspan="2" class="tabtt" align="center">
+<font class="thead">
+AD9850 Waveform Generator
+</font>
+</td></tr>
+<tr>
+<td class="tabtd" width="20%" valign="top">
+<script type="text/javascript">
+nav('../../', 'Portable FM Radio');
+</script><font style="color:blue;font-family:tahoma;font-size:9pt"><style type="text/css">a.n {color:black;text-decoration: none}a.n:hover {color:#777777;text-decoration: underline}a.n:active {text-decoration: underline}li.n1 {line-height:14px; font-size:9pt}li.n2 {line-height:12px; font-size:8pt}</style><font style="color:blue;font-family:tahoma;font-size:9pt"><b>Home</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/index.htm">Home</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/mail/contact.htm">Contact me</a></li><li class="n1"><a class="n" href="http://blog.vwlowen.co.uk/index.php">Blog - musings and moaning!</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>The Wirral Peninsula</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/wirral/index.htm"><b>Wirral contents page</b></a><p></p></li><li class="n1"><a class="n" href="http://home.vwlowen.co.uk:82/weather.htm">Weather Station Data</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/webcam/streamC.htm">Arrowe Brook Cam</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/wirral/map.htm">Map</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/wirral/textmain.htm">History</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/wirral/main.htm">Photographs</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/wirral/quiz/quizmain.htm">Photo Quiz</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/water/tracearrowebrook1.htm">Wirral's streams</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>Amateur Radio &amp; Electronics</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/radio/index.htm"><b>Main contents page</b></a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/arduino/index.htm"><b>ARDUINO - Projects &amp; Notes</b></a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/arduino/vfd/vfd-clock.htm">VFD Clock</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/arduino/power-supply/power-supply.htm">Variable DC Bench PSU</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/arduino/icsp/icsp.htm">AVR In-System Programmer</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/picaxe/weather-station/weather-station.htm">PICAXE Weather Station</a><ul></ul></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/radio/videoswitch3/index.htm">PICAXE Video Switcher</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/picaxe/index.htm">PICAXE Miscellaneous stuff</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/radio/fairmate/fairmate.htm">Resetting the Fairmate HP-2000</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/radio/alarm/index.htm">Beginner's Project</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/radio/radtech.htm">Cure TV Interference</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/java/index.htm">JavaScript Calculators</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/humax/temperature.htm">A temperature-controlled fan for the Humax</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/vestel/digihome.htm">Inside the Digihome PVR80</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>Webcams and Video cams</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/webcam/updateB.html">North Wirral Sky</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/webcam/streamC.htm">Arrowe Brook Cam</a></li></ul><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/photos/nestbox1/2010/nestbox1-file.htm">Nestbox video - 2010</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/photos/nestbox1/2010/2010.htm">Nestbox still shots - 2010</a></li></ul><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/videoset.htm">How the cameras work</a></li></ul><ul><li class="n2"><a class="n" href="http://www.vwlowen.co.uk/photos/archive.htm">Previous years' nestbox videos</a></li><li class="n2"><a class="n" href="http://www.vwlowen.co.uk/misc/firefox.htm">Video not working...?</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>How to set up video cams</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/weathercam.htm">The weathercam</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/icam/icam01.htm">Using iCam Basic</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/basic01.htm">Basic network video</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/stream.htm">How to stream video</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/nestbox.htm">The nestbox setup</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/video/server.htm">Working behind a router</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>Windows Software Downloads</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/downloads.htm"><b>Popular Downloads</b></a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/radio/files.htm">Amateur Radio Programs</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/internet/files2.htm">Internet Programs</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/moreinternet/files.htm">More Internet &amp; Networking</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/otherprogs/files.htm">Other Programs</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/files/index.htm">Master index of most programs</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>Delphi Programming</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/basicdelphi/page01.htm">Delphi Basics</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/directshow/page01.htm">DirectShow &amp; Delphi</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/directshow/asfwriter/page01.htm">ASF/Network Streaming</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>Miscellaneous &amp; Temporary Stuff</b><ul><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/routers/compare.htm">Comparison of routers on Be*</a><p></p></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/moving/moving1.htm">Moving House (2007)</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/bungalow/bungalow.htm">Jobs at the new bungalow</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/food/index.htm">Quick to make meals</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misty/kitten.htm">Misty</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/sooty.htm">Sooty</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/archive/archive.htm">Archived stuff</a></li><li class="n1"><a class="n" href="http://vwlowen.co.uk/gallery/gallery.php">Gallery</a></li></ul><hr><font style="color:blue;font-family:tahoma;font-size:9pt"><b>About this site</b><ul><li class="n1"><a class="n" href="http://vwlowen.co.uk/blog/index.php">Blog - musings and moaning!</a></li><li><a class="n" href="http://www.vwlowen.co.uk/mail/contact.htm">Contact me</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/copyright.htm">Copyright info</a></li><li class="n1"><a class="n" href="http://www.vwlowen.co.uk/misc/credits.htm">Credits &amp; references</a></li></ul><hr><p></p><p>&nbsp;</p><p></p><center><img src="./Arduino - AD9850 Waveform Generator_files/hitcounter2.bmp" id="counter2" alt="Counter"><p></p><p>&nbsp;</p><p></p></center><script type="text/javascript">count2()</script><a class="n" href="http://www.vwlowen.co.uk/misc/copyright.htm">© 1996 - 2019 vwlowen.co.uk</a>
+
+
+</font></font></font></font></font></font></font></font></font></font></td>
+<td valign="top">
+<!-- Start //-->
+
+<div style="position:absolute;right:100px;top:70px;z-index:0;">
+August 2015
+</div>
+<p>&nbsp;</p><p>
+
+
+</p><h1><font color="blue">AD9850 Waveform Generator</font></h1>
+
+<center><img src="./Arduino - AD9850 Waveform Generator_files/AD9850-waveform-generator.jpg" alt=""></center><p>
+
+
+</p><p>&nbsp;</p><p>
+
+
+
+</p><h2><font color="blue">The Circuit</font></h2>
+<center><img src="./Arduino - AD9850 Waveform Generator_files/AD9850-waveform-generator-circuit.png" alt=""></center><p>
+
+
+The circuit is based on the 
+<a href="http://www.eimodule.com/download/EIM377_AD9850_Signal_Generator_Module_V01.pdf" target="_blank">AD9850 DDS Module</a> which is available
+from various sources such as eBay, Banggood, etc.  Although it claims to operate up to 40 MHz, I found the output voltage started to drop off
+at about 2.6 MHz - both the 50 MHz digital 'scope and the 20 MHz analogue 'scope showed identical results. Therefore, I've limited the
+available frequency range from 10 Hz to 10 MHz in the software.</p><p>
+
+The desired frequency is set in the AD9850 module by clocking data to its <tt>DATA</tt> pin. The ATmega328 digital pins D5, D6, D7 and D8
+connect to the AD9850 module's pins <tt>RESET, DATA, FQ_UD</tt> and <tt>W_CLK</tt> respectively. "In phase" sine and square wave outputs
+are available from the AD9850 module pins 10 and 7. The square wave's duty cycle is adjusted with a pre-set potentiometer on the module
+itself.  I did consider removing the pot and using a panel-mounted one instead but I decided against it for this simple project. I just
+adjusted the pot for a 50% duty cycle (ie equal mark-space ratio) and left it at that.</p><p>
+
+Over the 10 Hz to 2.5 MHz frequency range, the peak-to-peak sinewave output is consistent at about 1.08 volts. The square wave is around 5 volts peak-to-peak.</p><p>
+
+</p><center><img src="./Arduino - AD9850 Waveform Generator_files/waveforms.jpg" alt=""></center><p>
+
+An interrupt-driven rotary encoder, connected to the ATmega328 interrupt pins (<tt>D2 and D3</tt>), adjusts the frequency between 10 Hz and 10 MHz in pre-set steps.  Pushing
+the rotary encoder's button (connected to <tt>D4</tt>) resets the frequency to 1 kHz. </p><p>
+The steps
+are set with a second rotary encoder (not interrupt-driven) connected to ATmega328 pins <tt>A2</tt> and <tt>A3</tt>. 
+
+The steps
+are determined in software - I've set them to 1 Hz, 10 Hz, 50 Hz, 100 Hz, 500 Hz, 1 kHz, 2.5 kHz, 5 kHz, 10 kHz, 100 kHz and 500 kHz. Pushing the encoder's button -
+connected to <tt>A4</tt> - resets the step to 1 Hz.  
+</p><p>
+The 1.8" TFT display connects to the ATmega328 pins <tt>A1, A0, D13, D12, D11</tt> and <tt>D10</tt>. <tt>D10</tt> to <tt>D13</tt> are the
+ATmega328's SPI pins and the software uses an Adafruit library. Pin <tt>D9</tt> connects to the display's <tt>LED</tt> pin via a 100 ohm
+resistor. <tt>D9</tt> is a PWM pin so the display's backlight brightness can be adjusted if desired. I've set it in software to '255' -ie
+maximum brightness.</p><p>
+
+There are some very similar 1.8" TFT displays available - the one I used has an ST7735 controller IC.  Some of the other displays use a different
+controller (and different Adafruit library) and - <i>not provided for in the PCB layout</i> - require 1k series resistors in each IO lead.</p><p> 
+
+I've used a 5 volts 1.5A regulator in the power supply section. With a 12v DC input, the regulator does run slightly warm so I fitted it with
+a small heatsink.  I included a jumpered link in the PCB design so an on/off switch could easily be added.</p><p>
+
+The two rotary encoders are soldered to the small front-panel-mounted PCB with the track side up. The encoders I used had metal bases so I slipped
+a piece of thin insulation under them.
+
+</p><p>&nbsp;</p><p>
+
+</p><h2><font color="blue">PCB Layout</font></h2>
+
+<a href="http://www.vwlowen.co.uk/arduino/AD9850-waveform-generator/AD9850-waveform-generator.cwz">Download Circuit Wizard PCB Layout</a>.<p>
+<a href="http://www.vwlowen.co.uk/arduino/AD9850-waveform-generator/AD9850-waveform-generator.pdf" target="_blank">Download PCB layout in PDF Format</a>.</p><p>
+</p><center><img src="./Arduino - AD9850 Waveform Generator_files/pcb-layout.jpg" alt="">&nbsp;&nbsp;
+
+<img src="./Arduino - AD9850 Waveform Generator_files/artwork.jpg" alt=""></center>&nbsp;&nbsp;
+
+<h2><font color="blue">Construction</font></h2>
+<p>
+</p><center><img src="./Arduino - AD9850 Waveform Generator_files/inside-view.jpg" alt=""></center>
+<p>
+</p><center><img src="./Arduino - AD9850 Waveform Generator_files/inside-view-2.jpg" alt=""></center>
+<p>&nbsp;</p><p>
+</p><h2><font color="blue">Main Components</font></h2>
+<center>
+<table width="80%" border="1" cellpadding="5">
+<tbody><tr>
+<td>1.8" TFT Display Module (ST7735 Controller)</td><td><a href="http://eu.banggood.com/Wholesale-Warehouse-18-Inch-TFT-LCD-Display-Module-ST7735S-51AVRSTM32ARM-816-Bit-wp-Uk-925129.html" target="_blank">Bang-good</a></td></tr>
+<tr>
+<td>AD9850 DDS Module</td><td><a href="http://eu.banggood.com/Wholesale-Warehouse-AD9850-DDS-Signal-Generator-Module-0-40MHz-IC-Test-Equipment-wp-Uk-915819.html" target="_blank">
+Bang-good</a></td></tr>
+<tr>
+<td>50x130x100mm enclosure</td><td>eBay (top-quality-tools)</td></tr>
+
+</tbody></table>
+
+<p>&nbsp;</p><p>
+
+
+
+</p></center>
+<p>
+
+</p><center>
+<iframe width="560" height="315" src="./Arduino - AD9850 Waveform Generator_files/YFWZxhSAdpI.html" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h2><font color="blue">The ATmega328 'sketch'</font></h2>
+
+<a href="http://www.analog.com/media/en/technical-documentation/data-sheets/AD9850.pdf" target="_blank">AD9850 Datasheet</a><br>
+<a href="http://www.eimodule.com/download/EIM377_AD9850_Signal_Generator_Module_V01.pdf" target="_blank">AD9850 DDS Module</a><p>
+</p><p>
+
+
+<b>Arduino Libraries:</b></p><p>
+
+
+<a href="https://github.com/adafruit/Adafruit-GFX-Library" target="_blank">Adafruit_GFX Library</a><br>
+
+<a href="https://github.com/adafruit/Adafruit-ST7735-Library" target="_blank">Adafruit_ST7735 Library</a><br>
+
+<a href="https://github.com/brianlow/Rotary" target="_blank">Rotary Encoder Library</a></p><p>
+
+
+</p><div style="position:relative;left:50px; width:90%; background-image:url(back.jpg);
+            border:#bfbfbf 2px solid;box-shadow: 3px 3px 3px #888; padding:20px;">
+
+<pre><span style="color: #7E7E7E;">/*&nbsp;Based&nbsp;on&nbsp;AD9851&nbsp;code&nbsp;from&nbsp;Andrew&nbsp;Smallbone&nbsp;-&nbsp;modified&nbsp;for&nbsp;AD9850</span>
+<span style="color: #7E7E7E;">&nbsp;&nbsp;&nbsp;http://www.rocketnumbernine.com/2011/10/25/programming-the-ad9851-dds-synthesizer&nbsp;</span>
+<span style="color: #7E7E7E;">&nbsp;*/</span>
+
+#include&nbsp;&lt;Adafruit_GFX.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Core graphics library https://github.com/adafruit/Adafruit-GFX-Library</span>
+#include&nbsp;&lt;Adafruit_ST7735.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Hardware-specific library https://github.com/adafruit/Adafruit-ST7735-Library</span>
+#include&nbsp;&lt;<span style="color: #CC6600;">SPI</span>.h&gt;
+
+#include&nbsp;&lt;<span style="color: #CC6600;">Rotary</span>.h&gt;            <span style="color: #7E7E7E;">//  Rotary encoder: https://github.com/brianlow/Rotary </span>
+
+<span style="color: #CC6600;">int</span> TFT_LED = 9;
+#define&nbsp;TFT_SCLK&nbsp;13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// 1.8" TFT Display.</span>
+#define&nbsp;TFT_MOSI&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">//</span>
+#define&nbsp;TFT_CS&nbsp;&nbsp;&nbsp;10
+#define&nbsp;TFT_RST&nbsp;&nbsp;A1&nbsp;&nbsp;
+#define&nbsp;TFT_DC&nbsp;&nbsp;&nbsp;A0
+
+Adafruit_ST7735&nbsp;tft&nbsp;=&nbsp;Adafruit_ST7735(TFT_CS,&nbsp;&nbsp;TFT_DC,&nbsp;TFT_RST);
+
+#define&nbsp;AD9850_CLOCK&nbsp;125000000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Module crystal frequency. Tweak here for accuracy.</span>
+
+#define&nbsp;W_CLK&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// AD9850 Module pins.    </span>
+#define&nbsp;FQ_UD&nbsp;7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+#define&nbsp;DATA&nbsp;&nbsp;6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+#define&nbsp;RESET&nbsp;5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+#define&nbsp;stepPin1&nbsp;A3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Set 'Step' rotary encoder pins</span>
+#define&nbsp;stepPin2&nbsp;A2
+<span style="color: #CC6600;">int</span> forceHzStep = A4;                  <span style="color: #7E7E7E;">// 'Step' rotary encoder's push button - Set 1 Hz steps.</span>
+<span style="color: #CC6600;">int</span> forcekHz = 4;                     <span style="color: #7E7E7E;">// Interrupt-driven encoder's push button - force 1kHz freq.</span>
+
+<span style="color: #CC6600;">Rotary</span> i = <span style="color: #CC6600;">Rotary</span>(stepPin1, stepPin2); <span style="color: #7E7E7E;">// Rotart encoder for setting increment.</span>
+<span style="color: #CC6600;">Rotary</span> r = <span style="color: #CC6600;">Rotary</span>(2, 3);               <span style="color: #7E7E7E;">// Rotary encoder for frequency connects to interrupt pins</span>
+
+<span style="color: #CC6600;">long</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">int</span> freq = 1000;         <span style="color: #7E7E7E;">// Set initial frequency.</span>
+<span style="color: #CC6600;">long</span> <span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">int</span> freqOld = freq;
+
+<span style="color: #CC6600;">long</span> <span style="color: #CC6600;">int</span> timer;
+
+
+<span style="color: #CC6600;">char</span>* stepText[11] = {<span style="color: #006699;">"  1 Hz"</span>, <span style="color: #006699;">" 10 Hz"</span>, <span style="color: #006699;">" 50 Hz"</span>, <span style="color: #006699;">"100 Hz"</span>, <span style="color: #006699;">"500 Hz"</span>, <span style="color: #006699;">"  1 kHz"</span>, <span style="color: #006699;">"2.5 kHz"</span>,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #006699;">"  5 kHz"</span>, <span style="color: #006699;">" 10 kHz"</span>, <span style="color: #006699;">"100 kHz"</span>, <span style="color: #006699;">"500 kHz"</span>};
+
+<span style="color: #CC6600;">int</span> stepPointer = 0; 
+<span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">long</span>  incr = 0;
+<span style="color: #CC6600;">String</span> units = stepText[stepPointer];
+
+#define&nbsp;pulseHigh(pin)&nbsp;{<span style="color: #CC6600;">digitalWrite</span>(pin, <span style="color: #006699;">HIGH</span>); <span style="color: #CC6600;">digitalWrite</span>(pin, <span style="color: #006699;">LOW</span>); }
+
+
+&nbsp;<span style="color: #7E7E7E;">// transfers a byte, a bit at a time, LSB first to the 9850 via serial DATA line</span>
+<span style="color: #CC6600;">void</span> tfr_byte(<span style="color: #CC6600;">byte</span> data) {
+&nbsp;&nbsp;<span style="color: #CC6600;">for</span> (<span style="color: #CC6600;">int</span> i = 0; i &lt; 8; i++, data &gt;&gt;= 1) {
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">digitalWrite</span>(DATA, data &amp; 0x01);
+&nbsp;&nbsp;&nbsp;&nbsp;pulseHigh(W_CLK);&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">//after each bit sent, CLK is pulsed high</span>
+&nbsp;&nbsp;}
+}
+
+<span style="color: #CC6600;">void</span> sendFrequency(<span style="color: #CC6600;">double</span> frequency) {
+&nbsp;&nbsp;int32_t&nbsp;freq1&nbsp;=&nbsp;frequency&nbsp;*&nbsp;4294967295/AD9850_CLOCK;&nbsp;&nbsp;<span style="color: #7E7E7E;">// note 125 MHz clock on 9850</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">for</span> (<span style="color: #CC6600;">int</span> b = 0; b &lt; 4; b++, freq1 &gt;&gt;= 8) {
+&nbsp;&nbsp;&nbsp;&nbsp;tfr_byte(freq1&nbsp;&amp;&nbsp;0xFF);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;tfr_byte(0x000);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Final control byte, all 0 for 9850 chip</span>
+&nbsp;&nbsp;pulseHigh(FQ_UD);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Done!  Should see output</span>
+}
+
+
+<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>setup</b></span>() {
+
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(2, <span style="color: #006699;">INPUT_PULLUP</span>);            <span style="color: #7E7E7E;">// Pins for interrupt-driven rotary encoder and push buttons</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(3, <span style="color: #006699;">INPUT_PULLUP</span>);
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(forceHzStep, <span style="color: #006699;">INPUT_PULLUP</span>);   
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(forcekHz, <span style="color: #006699;">INPUT_PULLUP</span>);  
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(FQ_UD, <span style="color: #006699;">OUTPUT</span>);              <span style="color: #7E7E7E;">// Configure pins for output to AD9850 module.</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(W_CLK, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(DATA, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(RESET, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(TFT_RST, <span style="color: #006699;">OUTPUT</span>);            <span style="color: #7E7E7E;">// Configure pins for output to TFT display.</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(TFT_DC, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;&nbsp;<span style="color: #CC6600;">pinMode</span>(TFT_LED, <span style="color: #006699;">OUTPUT</span>);
+&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">analogWrite</span>(TFT_LED, 255);           <span style="color: #7E7E7E;">// Adjust backlight brightness.</span>
+&nbsp;
+&nbsp;<span style="color: #7E7E7E;">// Configure interrupt and enable for rotary encoder.</span>
+&nbsp;&nbsp;PCICR&nbsp;|=&nbsp;(1&nbsp;&lt;&lt;&nbsp;PCIE2);
+&nbsp;&nbsp;PCMSK2&nbsp;|=&nbsp;(1&nbsp;&lt;&lt;&nbsp;PCINT18)&nbsp;|&nbsp;(1&nbsp;&lt;&lt;&nbsp;PCINT19);
+&nbsp;&nbsp;sei();
+&nbsp;&nbsp;
+
+&nbsp;&nbsp;tft.initR(INITR_BLACKTAB);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// initialize a ST7735S chip, black tab</span>
+&nbsp;&nbsp;
+&nbsp;&nbsp;tft.setRotation(3);&nbsp;
+&nbsp;&nbsp;&nbsp;tft.setTextWrap(<span style="color: #CC6600;">false</span>);              <span style="color: #7E7E7E;">// Allow text to run off right edge</span>
+&nbsp;&nbsp;tft.fillScreen(ST7735_BLACK);
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(15, tft.height() -20);
+&nbsp;&nbsp;tft.setTextSize(1);
+&nbsp;&nbsp;tft.drawFastHLine(0,&nbsp;tft.height()&nbsp;-&nbsp;23,&nbsp;tft.width()-10,&nbsp;ST7735_BLUE);
+&nbsp;&nbsp;tft.setTextColor(ST7735_BLUE);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">println</span>(<span style="color: #006699;">"AD9850 1 Hz to 5 MHz "</span>);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"   sinewave generator"</span>);
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// Initialise the AD9850 module. </span>
+&nbsp;&nbsp;pulseHigh(RESET);
+&nbsp;&nbsp;pulseHigh(W_CLK);
+&nbsp;&nbsp;pulseHigh(FQ_UD);&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// this pulse enables serial mode - Datasheet page 12 figure 10  </span>
+&nbsp;&nbsp;
+&nbsp;&nbsp;updateDisplay();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// Update the TFT display.</span>
+}
+
+<span style="color: #CC6600;">void</span> getStep() {
+&nbsp;&nbsp;<span style="color: #CC6600;">switch</span>(stepPointer) {
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 0:  incr = 1; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 1:  incr = 10; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 2:  incr = 50; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 3:  incr = 100; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 4:  incr = 500; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 5:  incr = 1000; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 6:  incr = 2500; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 7:  incr = 5000; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 8:  incr = 10000; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 9:  incr = 100000; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">case</span> 10: incr = 500000; <span style="color: #CC6600;">break</span>;
+&nbsp;&nbsp;}&nbsp;
+}
+
+
+<span style="color: #CC6600;">void</span> updateDisplay() {
+&nbsp;&nbsp;getStep();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #7E7E7E;">// </span>
+&nbsp;&nbsp;units&nbsp;=&nbsp;stepText[stepPointer];
+&nbsp;&nbsp;
+&nbsp;&nbsp;tft.fillRect(0,&nbsp;15,&nbsp;160,&nbsp;20,&nbsp;ST7735_BLACK);
+&nbsp;&nbsp;
+&nbsp;&nbsp;tft.setTextColor(ST7735_YELLOW);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(10, 20);
+&nbsp;&nbsp;tft.setTextSize(1);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"Step: "</span>);
+&nbsp;&nbsp;tft.setTextSize(2);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(60, 15);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(units);
+&nbsp;&nbsp;
+&nbsp;&nbsp;tft.fillRect(0,&nbsp;40,&nbsp;160,&nbsp;60,&nbsp;ST7735_BLACK);
+&nbsp;&nbsp;tft.setTextColor(ST7735_GREEN);
+&nbsp;&nbsp;tft.setTextSize(2);&nbsp;&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &lt; 1000) {
+&nbsp;&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(78, 50);
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &lt; 1000) tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">" "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &lt; 100) tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">" "</span>);
+&nbsp;&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(freq); 
+&nbsp;&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(58, 75);
+&nbsp;&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">" Hz"</span>);
+&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &lt; 1000000) {
+&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(40, 50);
+&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &lt; 10000) tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">" "</span>);
+&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>((<span style="color: #CC6600;">float</span>)freq/1000, 3); 
+&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(58, 75);
+&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">" kHz"</span>);
+&nbsp;&nbsp;}&nbsp;&nbsp;<span style="color: #CC6600;">else</span> {
+&nbsp;&nbsp;&nbsp;format(freq);
+&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(58, 75);
+&nbsp;&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">" MHz"</span>);
+&nbsp;&nbsp;}
+}
+
+<span style="color: #CC6600;">void</span> format(<span style="color: #CC6600;">long</span> value) {
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> M = (value/1000000);
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> T100 = ((value/100000)%10);
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> T10 = ((value/10000)%10);
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> T1 = ((value/1000)%10);
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> U100 = ((value/100)%10);
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> U10 = ((value/10)%10);
+&nbsp;&nbsp;<span style="color: #CC6600;">int</span> U1 = ((value/1)%10);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">setCursor</span>(25, 50);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(M);tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">"."</span>);tft.<span style="color: #CC6600;">print</span>(T100);tft.<span style="color: #CC6600;">print</span>(T10);tft.<span style="color: #CC6600;">print</span>(T1);
+&nbsp;&nbsp;tft.<span style="color: #CC6600;">print</span>(<span style="color: #006699;">","</span>);tft.<span style="color: #CC6600;">print</span>(U100);tft.<span style="color: #CC6600;">print</span>(U10);tft.<span style="color: #CC6600;">print</span>(U1);
+}&nbsp;
+
+<span style="color: #CC6600;">void</span> <span style="color: #CC6600;"><b>loop</b></span>() {
+&nbsp;&nbsp;<span style="color: #7E7E7E;">// Check 'Step' rotary encoder.</span>
+&nbsp;&nbsp;<span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">char</span> result = i.<span style="color: #CC6600;">process</span>();
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (result) {
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (result == <span style="color: #006699;">DIR_CW</span>)  {<span style="color: #CC6600;">if</span> (stepPointer &lt; 10) stepPointer++;}
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (result == <span style="color: #006699;">DIR_CCW</span>) {<span style="color: #CC6600;">if</span> (stepPointer &gt; 0) stepPointer--;} 
+&nbsp;&nbsp;&nbsp;&nbsp;updateDisplay();
+&nbsp;&nbsp;}
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (<span style="color: #CC6600;">digitalRead</span>(forceHzStep) == <span style="color: #006699;">LOW</span>) {
+&nbsp;&nbsp;&nbsp;&nbsp;stepPointer&nbsp;=&nbsp;0;
+&nbsp;&nbsp;&nbsp;&nbsp;updateDisplay();
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(50);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (<span style="color: #CC6600;">digitalRead</span>(forcekHz) == <span style="color: #006699;">LOW</span>) {
+&nbsp;&nbsp;&nbsp;&nbsp;freq&nbsp;=&nbsp;1000;
+&nbsp;&nbsp;&nbsp;&nbsp;sendFrequency(freq);
+&nbsp;&nbsp;&nbsp;&nbsp;updateDisplay();
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">delay</span>(350);
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freqOld != freq) {
+&nbsp;&nbsp;&nbsp;&nbsp;sendFrequency(freq);
+&nbsp;&nbsp;&nbsp;&nbsp;updateDisplay();
+&nbsp;&nbsp;&nbsp;&nbsp;freqOld&nbsp;=&nbsp;freq;
+&nbsp;&nbsp;}
+}
+
+ISR(PCINT2_vect)&nbsp;{
+&nbsp;&nbsp;<span style="color: #CC6600;">unsigned</span> <span style="color: #CC6600;">char</span> result = r.<span style="color: #CC6600;">process</span>();
+&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (result) {
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (result == <span style="color: #006699;">DIR_CW</span>) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> ((freq + incr) &lt;= 10000000) freq += incr;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<span style="color: #CC6600;">else</span> {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> ((freq - incr) &gt;= 10) freq -= incr;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &lt;= 10)  freq = 10;
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #CC6600;">if</span> (freq &gt;=10000000) freq = 10000000;
+&nbsp;&nbsp;}
+}
+
+
+
+</pre>
+
+</div>
+
+<p>&nbsp;</p><p>
+</p><center><a href="http://www.vwlowen.co.uk/arduino/index.htm">Back to Index</a></center>
+
+<!-- End //-->
+</td></tr></tbody></table>
+<p>&nbsp;</p><p>
+
+</p><hr>
+
+<font size="-1">
+This site and its contents are © Copyright 2015 - All Rights Reserved.
+</font>
+
+
+
+
+<iframe id="blockbyte-bs-sidebar" class="notranslate" data-pos="left" src="./Arduino - AD9850 Waveform Generator_files/saved_resource.html"></iframe><div id="blockbyte-bs-indicator" class="blockbyte-bs-fullHeight" style="width: 2px; height: 100%; top: 0%;"></div></body></html>
