@@ -46,6 +46,10 @@ void setup() {
   pulseHigh(RESET);
   pulseHigh(W_CLK);
   pulseHigh(FQ_UD);  // this pulse enables serial mode on the AD9850 - Datasheet page 12.
+  lcd.setCursor(2,0);
+  lcd.print("DDS v1.0.0");
+  delay(1000);
+  lcd.clear();
   lcd.setCursor(hertzPosition,1);    
   lcd.print(hertz);
    // Load the stored frequency  
