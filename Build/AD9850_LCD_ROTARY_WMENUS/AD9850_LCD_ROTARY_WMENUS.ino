@@ -5,7 +5,7 @@ Revision 2.0 - November 6th, 2013
 
 // Include the library code
 #include <LiquidCrystal.h>
-#include <rotary.h>
+#include <Rotary.h>
 #include <EEPROM.h>
 
 //Setup some items
@@ -16,11 +16,11 @@ Revision 2.0 - November 6th, 2013
 #define pulseHigh(pin) {digitalWrite(pin, HIGH); digitalWrite(pin, LOW); }
 Rotary r = Rotary(2,3); // sets the pins the rotary encoder uses.  Must be interrupt pins.
 LiquidCrystal lcd(12, 13, 7, 6, 5, 4); // I used an odd pin combination because I need pin 2 and 3 for the interrupts.
-int_fast32_t rx=10000000; // Starting frequency of VFO
+int_fast32_t rx=7000000; // Starting frequency of VFO
 int_fast32_t rx2=1; // variable to hold the updated frequency
-int_fast32_t increment = 10; // starting VFO update increment in HZ.
+int_fast32_t increment = 100; // starting VFO update increment in HZ.
 int buttonstate = 0;
-String hertz = "10 Hz";
+String hertz = "100 Hz";
 int  hertzPosition = 5;
 byte ones,tens,hundreds,thousands,tenthousands,hundredthousands,millions ;  //Placeholders
 String freq; // string to hold the frequency
@@ -40,6 +40,7 @@ void setup() {
   pinMode(A0,INPUT); // Connect to a button that goes to GND on push
   digitalWrite(A0,HIGH);
   lcd.begin(16, 2);
+  r.begin();
   PCICR |= (1 << PCIE2);
   PCMSK2 |= (1 << PCINT18) | (1 << PCINT19);
   sei();
@@ -57,6 +58,7 @@ void setup() {
 //    freq = String(EEPROM.read(0))+String(EEPROM.read(1))+String(EEPROM.read(2))+String(EEPROM.read(3))+String(EEPROM.read(4))+String(EEPROM.read(5))+String(EEPROM.read(6));
 //    rx = freq.toInt();  
 //  }
+  
 }
 
 
@@ -112,7 +114,8 @@ void tfr_byte(byte data)
 }
 
 void setincrement(){
-  if(increment == 10){increment = 50; hertz = "50 Hz"; hertzPosition=5;}
+  if(increment == 1){increment = 10; hertz = "10 Hz"; hertzPosition=5;}
+  else if(increment == 10){increment = 50; hertz = "50 Hz"; hertzPosition=5;}
   else if (increment == 50){increment = 100;  hertz = "100 Hz"; hertzPosition=4;}
   else if (increment == 100){increment = 500; hertz="500 Hz"; hertzPosition=4;}
   else if (increment == 500){increment = 1000; hertz="1 Khz"; hertzPosition=6;}
@@ -121,7 +124,7 @@ void setincrement(){
   else if (increment == 5000){increment = 10000; hertz="10 Khz"; hertzPosition=5;}
   else if (increment == 10000){increment = 100000; hertz="100 Khz"; hertzPosition=4;}
   else if (increment == 100000){increment = 1000000; hertz="1 Mhz"; hertzPosition=6;}  
-  else{increment = 10; hertz = "10 Hz"; hertzPosition=5;};  
+  else{increment = 1; hertz = "1 Hz"; hertzPosition=5;};  
    lcd.setCursor(0,1);
    lcd.print("                ");
    lcd.setCursor(hertzPosition,1); 
