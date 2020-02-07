@@ -27,16 +27,11 @@ String freq; // string to hold the frequency
 int_fast32_t timepassed = millis(); // int to hold the arduino miilis since startup
 int memstatus = 1;  // value to notify if memory is current or old. 0=old, 1=current.
 
-
-
-
-
-int ForceFreq = 1;  // Change this to 0 after you upload and run a working sketch to activate the EEPROM memory.  YOU MUST PUT THIS BACK TO 0 AND UPLOAD THE SKETCH AGAIN AFTER STARTING FREQUENCY IS SET!
-
-
-
+int ForceFreq = 0;  // Change this to 0 after you upload and run a working sketch to activate the EEPROM memory.  YOU MUST PUT THIS BACK TO 0 AND UPLOAD THE SKETCH AGAIN AFTER STARTING FREQUENCY IS SET!
 
 void setup() {
+  Serial.begin(9600);
+  Serial.println("Start...");
   pinMode(A0,INPUT); // Connect to a button that goes to GND on push
   digitalWrite(A0,HIGH);
   lcd.begin(16, 2);
@@ -54,10 +49,11 @@ void setup() {
   lcd.setCursor(hertzPosition,1);    
   lcd.print(hertz);
    // Load the stored frequency  
-//  if (ForceFreq == 0) {
-//    freq = String(EEPROM.read(0))+String(EEPROM.read(1))+String(EEPROM.read(2))+String(EEPROM.read(3))+String(EEPROM.read(4))+String(EEPROM.read(5))+String(EEPROM.read(6));
-//    rx = freq.toInt();  
-//  }
+  if (ForceFreq == 0) {
+    freq = String(EEPROM.read(0))+String(EEPROM.read(1))+String(EEPROM.read(2))+String(EEPROM.read(3))+String(EEPROM.read(4))+String(EEPROM.read(5))+String(EEPROM.read(6));
+    rx = freq.toInt();  
+    Serial.println(rx);
+  }
   
 }
 
@@ -74,12 +70,12 @@ void loop() {
         setincrement();        
     };
 
-  // Write the frequency to memory if not stored and 2 seconds have passed since the last frequency change.
+  // Write the frequency to memory if not stored and 20 seconds have passed since the last frequency change.
     if(memstatus == 0){   
-      if(timepassed+2000 < millis()){
-        //storeMEM();
-        }
-      }   
+      if(timepassed+20000 < millis()){
+        storeMEM();
+      }
+    }   
 }
 
 
