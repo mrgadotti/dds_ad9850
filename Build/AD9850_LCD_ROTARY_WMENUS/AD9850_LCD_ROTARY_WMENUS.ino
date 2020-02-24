@@ -27,7 +27,7 @@ String freq; // string to hold the frequency
 int_fast32_t timepassed = millis(); // int to hold the arduino miilis since startup
 int memstatus = 1;  // value to notify if memory is current or old. 0=old, 1=current.
 
-int ForceFreq = 0;  // Change this to 0 after you upload and run a working sketch to activate the EEPROM memory.  YOU MUST PUT THIS BACK TO 0 AND UPLOAD THE SKETCH AGAIN AFTER STARTING FREQUENCY IS SET!
+int ForceFreq = 1;  // Change this to 0 after you upload and run a working sketch to activate the EEPROM memory.  YOU MUST PUT THIS BACK TO 0 AND UPLOAD THE SKETCH AGAIN AFTER STARTING FREQUENCY IS SET!
 
 void setup() {
   Serial.begin(9600);
@@ -166,4 +166,5 @@ void storeMEM(){
    EEPROM.write(5,tens);
    EEPROM.write(6,ones);   
    memstatus = 1;  // Let program know memory has been written
+   Serial.println(rx);
 };
